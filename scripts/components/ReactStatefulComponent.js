@@ -35,7 +35,7 @@ class ReactStatefulComponent extends Component {
     return `
       // @flow
       import React, { Component } from 'react'
-      import './${component}.scss'
+      import styles from './${component}.scss'
 
       class ${component} extends Component {
         constructor(props) {
@@ -72,12 +72,18 @@ class ReactStatefulComponent extends Component {
     return `
       import React from 'react';
       import { shallow } from 'enzyme';
+      import renderer from 'react-test-renderer';
+
       import ${component} from './${component}';
 
       describe('${component} suite', () => {
         it('renders ${component} without any state injected', () => {
           const component = shallow(<${component} />);
+          const tree = renderer
+            .create(<${component} />)
+            .toJSON();
           expect(component).toBeDefined();
+          expect(tree).toMatchSnapshot();
         });
       });
     `;

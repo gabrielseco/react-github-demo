@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
-import { Header } from './../../components';
+import { Header, Footer } from './../../components';
+import utils from './../../stylesheets/utils/flexbox.scss';
 import './App.scss';
 
 class App extends Component {
@@ -11,7 +12,13 @@ class App extends Component {
 
   render() {
     return (
-      <Header/>
+      <div className={utils.flexboxSticky}>
+        <Header />
+        <main className={utils.flex1}>
+          <h2>This is going to be the main content</h2>
+        </main>
+        <Footer />
+      </div>
     );
   }
 }

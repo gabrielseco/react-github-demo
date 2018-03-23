@@ -32,7 +32,7 @@ class ReactStatelessComponent extends Component {
     return `
       // @flow
       import React from 'react';
-      import './${component}.scss';
+      import styles from './${component}.scss';
       
       const ${component} = () => (
         <div>
@@ -48,13 +48,18 @@ class ReactStatelessComponent extends Component {
     return `
       import React from 'react';
       import { shallow } from 'enzyme';
+      import renderer from 'react-test-renderer';
       
       import ${component} from './${component}';
       
       describe('${component} suite', () => {
         it('should render the ${component} component', () => {
           const component = shallow(<${component} />);
+          const tree = renderer
+            .create(<${component} />)
+            .toJSON();
           expect(component).toBeDefined();
+          expect(tree).toMatchSnapshot();
         });
       });
     `;

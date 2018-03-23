@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
+const ip = require('ip');
+
 const config = require('./webpack.config');
 const { HOST, PORT } = require('./env/dev.env');
 
@@ -29,4 +31,5 @@ new WebpackDevServer(webpack(config), {
   }
 
   console.log(`Listening at http://${HOST}:${PORT}/`);
+  console.log(`Your IP address http://${ip.address()}:${PORT}`);
 });
