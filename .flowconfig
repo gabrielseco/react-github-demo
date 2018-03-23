@@ -1,0 +1,12 @@
+[include]
+.*/src/.*
+
+[libs]
+./config/flow/index.js
+
+[options]
+module.file_ext=.scss
+module.name_mapper.extension='scss' -> 'empty/object
+
+[ignore]
+.*/node_modules/.*

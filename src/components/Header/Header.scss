@@ -1,0 +1,16 @@
+$header-min-height: 50px;
+$header-background-color: #ffffff;
+$header-color: #212240;
+$header-border-color: rgba(33,34,64,.05);
+$header-box-shadow-color: rgba(50,50,50,.05);
+
+.header {
+  align-items: center;
+  background: $header-background-color;
+  border-bottom: 1px solid $header-border-color;
+  box-shadow: 0 5px 15px 1px $header-box-shadow-color;
+  color: $header-color;
+  display: flex;
+  justify-content: center;
+  min-height: $header-min-height;
+}

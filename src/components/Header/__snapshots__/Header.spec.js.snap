@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header suite should render the Header component 1`] = `
+<header
+  className="header"
+>
+  <h2>
+    Github Demo
+  </h2>
+</header>
+`;
