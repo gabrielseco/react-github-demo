@@ -31,5 +31,5 @@ new WebpackDevServer(webpack(config), {
   }
 
   console.log(`Listening at http://${HOST}:${PORT}/`);
-  console.log(`Your IP address http://${ip.address()}:${PORT}`);
+  console.log(`Your IP address is: http://${ip.address()}:${PORT}`);
 });
