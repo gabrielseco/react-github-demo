@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Spinner suite should render the Spinner component 1`] = `
-<div>
-  <p>
-    Loading data from server
-  </p>
-</div>
+<div
+  className="spinner"
+/>
 `;
