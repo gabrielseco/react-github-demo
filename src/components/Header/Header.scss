@@ -22,4 +22,6 @@ $header-logo-padding: 0 20px;
   padding: $header-logo-padding;
 }
 
-.title {}
+.title {
+  color: $header-color;
+}

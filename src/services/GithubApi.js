@@ -6,7 +6,7 @@ const BASE_URL = 'https://api.github.com';
 
 const GithubApi = {
   getRepos: (username: string): Promise<GithubRepos[]> => {
-    const url = `${BASE_URL}/users/${username}/repos?per_page=250`;
+    const url = `${BASE_URL}/users/${username}/repos?per_page=10`;
     return axios.get(url).then(response => response.data);
   },
   getUserData: (username: string) => {

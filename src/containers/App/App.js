@@ -1,16 +1,20 @@
 // @flow
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
+import { withRouter } from 'react-router-dom';
 import { Header, Footer, SearchBox, Spinner } from './../../components';
 import GithubApi from './../../services/GithubApi';
-import { GithubRepos } from './../../types';
+import { GithubRepos, GithubUser, GithubOrg } from './../../types';
 import styles from './App.scss';
 import utils from './../../stylesheets/utils/flexbox.scss';
 
 type State = {
   repos: GithubRepos[],
+  user: GithubUser,
+  orgs: GithubOrg[],
   search: string,
-  isLoading: boolean
+  isLoading: boolean,
+  pathname: string
 };
 
 class App extends Component {
@@ -21,10 +25,20 @@ class App extends Component {
     this.state = {
       repos: [],
       search: '',
-      isLoading: false
+      isLoading: false,
+      pathname: this.props.location.pathname
     };
     this.onChange = this.onChange.bind(this);
     this.searchRepos = debounce(this.searchRepos, 500);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        pathname: props.location.pathname
+      };
+    });
   }
 
   onChange({ value }) {
@@ -33,17 +47,38 @@ class App extends Component {
       isLoading: true
     });
 
-    this.searchRepos(value);
+    if (this.state.pathname === '/' || this.state.pathname === '/repos') {
+      this.searchRepos(value);
+    }
+
+    if (this.state.pathname === '/orgs') {
+      this.searchOrgs(value);
+    }
   }
 
-  async searchRepos(value: string) {
-    if (value !== '') {
-      const repos = await GithubApi.getRepos(value);
+  async searchRepos(username: string) {
+    if (username !== '') {
+      const repos = await GithubApi.getRepos(username);
 
       this.setState(prevState => {
         return {
           ...prevState,
           repos: repos,
+          isLoading: false
+        };
+      });
+    }
+  }
+
+  async searchOrgs(username: string) {
+    if (username !== '') {
+      const { user, orgs } = await GithubApi.getUserData(username);
+
+      this.setState(prevState => {
+        return {
+          ...prevState,
+          user: user,
+          orgs: orgs,
           isLoading: false
         };
       });
@@ -81,4 +116,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
