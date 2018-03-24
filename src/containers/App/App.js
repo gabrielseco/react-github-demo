@@ -2,17 +2,22 @@
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
 import { withRouter } from 'react-router-dom';
-import { Header, Footer, SearchBox, Spinner } from './../../components';
+import {
+  Header,
+  Footer,
+  SearchBox,
+  Spinner,
+  ReposList
+} from './../../components';
 import GithubApi from './../../services/GithubApi';
-import { GithubRepos, GithubUser, GithubOrg } from './../../types';
+import { GithubRepo, GithubUser, GithubOrg } from './../../types';
 import styles from './App.scss';
 import utils from './../../stylesheets/utils/flexbox.scss';
 
 type State = {
-  repos: GithubRepos[],
+  repos: GithubRepo[],
   user: GithubUser,
   orgs: GithubOrg[],
-  search: string,
   isLoading: boolean,
   pathname: string
 };
@@ -24,7 +29,6 @@ class App extends Component {
     super(props);
     this.state = {
       repos: [],
-      search: '',
       isLoading: false,
       pathname: this.props.location.pathname
     };
@@ -43,8 +47,7 @@ class App extends Component {
 
   onChange({ value }) {
     this.setState({
-      search: value,
-      isLoading: true
+      isLoading: value !== ''
     });
 
     if (this.state.pathname === '/' || this.state.pathname === '/repos') {
@@ -85,15 +88,19 @@ class App extends Component {
     }
   }
 
-  renderResults(repos: GithubRepos[]) {
+  renderResults(repos: GithubRepo[]) {
     if (repos.length === 0) {
       return null;
     }
-    return <pre>{JSON.stringify(repos, null, 4)}</pre>;
+    return (
+      <div className={styles.reposContainer}>
+        <ReposList repos={repos} />
+      </div>
+    );
   }
 
   render() {
-    const { repos, search, isLoading } = this.state;
+    const { repos, isLoading } = this.state;
     return (
       <div className={utils.flexboxSticky}>
         <Header />
@@ -106,9 +113,14 @@ class App extends Component {
                 onChange={this.onChange}
               />
             </div>
-            <pre>{search}</pre>
-            {isLoading ? <Spinner /> : this.renderResults(repos)}
           </div>
+          {isLoading ? (
+            <div className={styles.spinnerContainer}>
+              <Spinner />
+            </div>
+          ) : (
+            this.renderResults(repos)
+          )}
         </main>
         <Footer />
       </div>

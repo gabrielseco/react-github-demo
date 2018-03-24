@@ -1,10 +1,12 @@
 // @flow
 
-export type GithubRepos = {
+export type GithubRepo = {
   id: number,
-  name: string,
+  description: string,
   language: string,
-  stargazers_count: number
+  name: string,
+  stargazers_count: number,
+  svn_url: string
 };
 
 export type GithubUser = {

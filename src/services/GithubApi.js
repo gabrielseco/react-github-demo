@@ -1,11 +1,11 @@
 // @flow
 import axios from 'axios';
-import { GithubRepos } from './../types';
+import { GithubRepo } from './../types';
 
 const BASE_URL = 'https://api.github.com';
 
 const GithubApi = {
-  getRepos: (username: string): Promise<GithubRepos[]> => {
+  getRepos: (username: string): Promise<GithubRepo[]> => {
     const url = `${BASE_URL}/users/${username}/repos?per_page=10`;
     return axios.get(url).then(response => response.data);
   },

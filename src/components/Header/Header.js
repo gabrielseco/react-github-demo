@@ -1,7 +1,8 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NavBar, NavItem } from './../../components';
+import { NavBar } from './../NavBar';
+import { NavItem } from './../NavItem';
 import styles from './Header.scss';
 
 const Header = () => (

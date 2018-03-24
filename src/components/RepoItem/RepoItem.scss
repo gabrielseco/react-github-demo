@@ -1,0 +1,45 @@
+$border-repo-item-color: #cccccc;
+$padding-repo-item: 1.25em;
+$title-repo-item-color: #0921ea;
+$margin-repo-item: 20px 0;
+
+.repoItem {
+  border: 1px solid $border-repo-item-color;
+  border-radius: 2px;
+  font-family: 'Open Sans', sans-serif;
+  margin: $margin-repo-item;
+  padding: $padding-repo-item;
+}
+
+.title {
+  color: $title-repo-item-color;
+  display: block;
+  margin: 0.625em 0;
+
+  &:visited {
+    color: $title-repo-item-color;
+  }
+}
+
+.description {
+  margin: 20px 0;
+}
+
+.row {
+  display: block;
+}
+
+.language {
+  display: inline;
+  font-weight: bold;
+  margin-right: 20px; 
+}
+
+.stars {
+  display: inline;
+}
+
+.star {
+  margin-right: 4px;
+  vertical-align: middle;
+}
