@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBox suite renders SearchBox without any state injected 1`] = `
+<div
+  className="container"
+>
+  <input
+    className=""
+    onKeyUp={[Function]}
+    placeholder=""
+    type="text"
+  />
+</div>
+`;

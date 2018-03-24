@@ -12,7 +12,7 @@ exports[`Footer suite should render the Footer component 1`] = `
     <i
       className="footerIcon fa fa-heart-o"
     />
-    , Madrid 2018 
+    , Madrid 2018
   </p>
 </footer>
 `;

@@ -4,6 +4,8 @@ $header-color: #212240;
 $header-border-color: rgba(33, 34, 64, 0.05);
 $header-box-shadow-color: rgba(50, 50, 50, 0.05);
 
+$header-logo-padding: 0 20px;
+
 .header {
   align-items: center;
   background: $header-background-color;
@@ -11,6 +13,13 @@ $header-box-shadow-color: rgba(50, 50, 50, 0.05);
   box-shadow: 0 5px 15px 1px $header-box-shadow-color;
   color: $header-color;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   min-height: $header-min-height;
 }
+
+.logo {
+  flex: 3;
+  padding: $header-logo-padding;
+}
+
+.title {}

@@ -9,7 +9,7 @@ const GithubApi = {
     const url = `${BASE_URL}/users/${username}/repos?per_page=250`;
     return axios.get(url).then(response => response.data);
   },
-  getUserData: username => {
+  getUserData: (username: string) => {
     return axios
       .all([
         axios.get(`${BASE_URL}/users/${username}`),

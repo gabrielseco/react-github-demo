@@ -4,8 +4,44 @@ exports[`Header suite should render the Header component 1`] = `
 <header
   className="header"
 >
-  <h2>
-    Github Demo
-  </h2>
+  <div
+    className="logo"
+  >
+    <h2
+      className="title"
+    >
+      Github Demo
+    </h2>
+  </div>
+  <nav
+    className="navBar"
+  >
+    <ul
+      className="navWrapper"
+    >
+      <li
+        className="navItem"
+      >
+        <a
+          className="navLink"
+          href="/repos"
+          onClick={[Function]}
+        >
+          Repos
+        </a>
+      </li>
+      <li
+        className="navItem"
+      >
+        <a
+          className="navLink"
+          href="/orgs"
+          onClick={[Function]}
+        >
+          Orgs
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
 `;

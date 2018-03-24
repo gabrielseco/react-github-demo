@@ -12,7 +12,7 @@ const Footer = () => (
   <footer className={styles.footer}>
     <p>Gabriel García Seco</p>
     <p>
-      Made with <i className={footerIconClassNames} />, Madrid 2018{' '}
+      Made with <i className={footerIconClassNames} />, Madrid 2018
     </p>
   </footer>
 );
