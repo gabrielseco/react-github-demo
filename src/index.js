@@ -11,7 +11,6 @@ import './stylesheets/index.scss';
 const app = (
   <Router>
     <App
-      routes={routes}
       render={({ username, isLoading, onChange }) => {
         const routing = routes({
           username: username,

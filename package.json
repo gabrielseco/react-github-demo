@@ -7,7 +7,7 @@
     "clean:modules": "rm -rf node_modules",
     "coverage:open": "open coverage/lcov-report/index.html",
     "prepush": "npm run test",
-    "precommit": "lint-staged",
+    "precommit": "npm run flow && lint-staged",
     "commit": "git-cz",
     "dev": "node config/browser-open.js && node config/webpack-server.js",
     "prebuild": "rm -rf ./public",
@@ -20,6 +20,7 @@
     "test:watch": "jest --watchAll --config ./jest.config.json",
     "lint:js": "eslint ./src/**/*.js --color",
     "lint:css": "stylelint 'src/**/*.scss'",
+    "flow": "flow",
     "generate:stateful": "node ./scripts/stateful.js",
     "generate:stateless": "node ./scripts/stateless.js"
   },

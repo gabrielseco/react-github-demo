@@ -1,0 +1,29 @@
+$font-family: 'Open Sans', sans-serif;
+$border-profile-color: #cccccc;
+$picture-profile-width: 150px;
+$profile-color: #000000;
+
+.container {
+  border: 1px solid $border-profile-color;
+  font-family: $font-family;
+  overflow: auto;
+  padding: 20px;
+}
+
+.picture {
+  float: left;
+  margin-right: 10px;
+  width: $picture-profile-width;
+}
+
+.title {
+  color: $profile-color;
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.description {
+  color: $profile-color;
+  font-size: 1.2rem;
+}

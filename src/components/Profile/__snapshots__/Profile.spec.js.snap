@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile suite should render the Profile component 1`] = `
+<div
+  className="container"
+>
+  <a
+    href="https://github.com/SaraVieira"
+    target="_blank"
+  >
+    <img
+      alt="Sara Vieira"
+      className="picture"
+      src="https://avatars0.githubusercontent.com/u/1051509?v=4"
+      title="Sara Vieira"
+    />
+    <p
+      className="title"
+    >
+      Sara Vieira
+    </p>
+    <p
+      className="description"
+    >
+      I make useless stuff for the funsies.
+Work at @yldio 
+    </p>
+  </a>
+</div>
+`;

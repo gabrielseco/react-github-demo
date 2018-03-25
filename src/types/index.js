@@ -19,10 +19,12 @@ export type GithubUser = {
   followers: number,
   following: number,
   hireable: boolean,
+  html_url: string,
   id: number,
   location: string,
   name: string,
-  public_repos: number
+  public_repos: number,
+  public_gists: number
 };
 
 export type GithubOrg = {

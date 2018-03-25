@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Orgs suite should render the Orgs component 1`] = `
+<div>
+  <div
+    className="container"
+  >
+    <img
+      alt="esfiddle"
+      className="picture"
+      src="https://avatars0.githubusercontent.com/u/25109279?v=4"
+    />
+    <p
+      className="title"
+    >
+      esfiddle
+    </p>
+  </div>
+  <div
+    className="container"
+  >
+    <img
+      alt="OpenSourceLove"
+      className="picture"
+      src="https://avatars3.githubusercontent.com/u/29953818?v=4"
+    />
+    <p
+      className="title"
+    >
+      OpenSourceLove
+    </p>
+  </div>
+  <div
+    className="container"
+  >
+    <img
+      alt="upwithxyz"
+      className="picture"
+      src="https://avatars0.githubusercontent.com/u/33137346?v=4"
+    />
+    <p
+      className="title"
+    >
+      upwithxyz
+    </p>
+  </div>
+</div>
+`;

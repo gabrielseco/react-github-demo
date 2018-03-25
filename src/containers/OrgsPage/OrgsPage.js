@@ -2,13 +2,14 @@
 import React, { Component, Fragment } from 'react';
 import debounce from 'lodash.debounce';
 import GithubApi from './../../services/GithubApi';
-import { Spinner } from './../../components';
+import { Spinner, Profile, Orgs } from './../../components';
 import styles from './OrgsPage.scss';
 import { GithubUser, GithubOrg } from './../../types';
 
 type State = {
   user: GithubUser,
-  orgs: GithubOrg[]
+  orgs: GithubOrg[],
+  isLoading: boolean
 };
 
 type Props = {
@@ -56,7 +57,7 @@ class OrgsPage extends Component<Props, State> {
       this.setState(prevState => {
         return {
           ...prevState,
-          orgs: [],
+          orgs: undefined,
           user: undefined,
           isLoading: false
         };
@@ -80,11 +81,16 @@ class OrgsPage extends Component<Props, State> {
   }
 
   renderResults(user, orgs) {
-    if (user === undefined || orgs === undefined) {
+    if (user === undefined && orgs === undefined) {
       return null;
     }
 
-    return <pre>{JSON.stringify(user, null, 4)}</pre>;
+    return (
+      <div className={styles.container}>
+        <Profile data={user} />
+        <Orgs orgs={orgs} />
+      </div>
+    );
   }
 
   render() {
