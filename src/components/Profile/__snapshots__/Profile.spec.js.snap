@@ -2,17 +2,17 @@
 
 exports[`Profile suite should render the Profile component 1`] = `
 <div
-  className="container"
+  className="container profile"
 >
   <a
     href="https://github.com/SaraVieira"
     target="_blank"
   >
     <img
-      alt="Sara Vieira"
+      alt="SaraVieira"
       className="picture"
       src="https://avatars0.githubusercontent.com/u/1051509?v=4"
-      title="Sara Vieira"
+      title="SaraVieira"
     />
     <p
       className="title"

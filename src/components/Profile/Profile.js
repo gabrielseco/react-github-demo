@@ -8,15 +8,17 @@ type Props = {
 };
 
 const Profile = ({ data }: Props) => (
-  <div className={styles.container}>
+  <div className={`${styles.container} profile`}>
     <a href={data.html_url} target="_blank">
       <img
         className={styles.picture}
         src={data.avatar_url}
-        alt={data.name}
-        title={data.name}
+        alt={data.login}
+        title={data.login}
       />
-      <p className={styles.title}>{data.name}</p>
+      <p className={styles.title}>
+        {data.name !== null ? data.name : data.login}
+      </p>
       {data.bio ? (
         <p className={styles.description}>{data.bio}</p>
       ) : (
