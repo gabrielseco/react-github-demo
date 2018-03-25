@@ -7,7 +7,7 @@
     "clean:modules": "rm -rf node_modules",
     "coverage:open": "open coverage/lcov-report/index.html",
     "prepush": "npm run test",
-    "precommit": "npm run flow && lint-staged",
+    "precommit": "lint-staged",
     "commit": "git-cz",
     "dev": "node config/browser-open.js && node config/webpack-server.js",
     "prebuild": "rm -rf ./public",
