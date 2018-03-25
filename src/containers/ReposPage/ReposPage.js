@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import debounce from 'lodash.debounce';
 import { Spinner, ReposList } from './../../components';
 import GithubApi from './../../services/GithubApi';
@@ -12,7 +12,8 @@ type State = {
 };
 
 type Props = {
-  username: string
+  username: string,
+  isLoading: boolean
 };
 
 class ReposPage extends Component<Props, State> {
@@ -26,16 +27,30 @@ class ReposPage extends Component<Props, State> {
     this.searchRepos = debounce(this.searchRepos, 500);
   }
 
+  componentDidMount() {
+    this.update({
+      isLoading: this.props.isLoading,
+      username: this.props.username
+    });
+  }
+
   componentWillReceiveProps(props) {
+    this.update({
+      isLoading: props.isLoading,
+      username: props.username
+    });
+  }
+
+  update({ isLoading, username }: { isLoading: boolean, username: string }) {
     this.setState(prevState => {
       return {
         ...prevState,
-        isLoading: props.isLoading
+        isLoading: isLoading
       };
     });
 
-    if (props.username.trim() !== '') {
-      this.searchRepos(props.username);
+    if (username.trim() !== '') {
+      this.searchRepos(username.trim());
     } else {
       this.setState(prevState => {
         return {
@@ -75,7 +90,7 @@ class ReposPage extends Component<Props, State> {
   render() {
     const { repos, isLoading } = this.state;
     return (
-      <div>
+      <Fragment>
         {isLoading ? (
           <div className={styles.spinnerContainer}>
             <Spinner />
@@ -83,7 +98,7 @@ class ReposPage extends Component<Props, State> {
         ) : (
           this.renderResults(repos)
         )}
-      </div>
+      </Fragment>
     );
   }
 }

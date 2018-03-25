@@ -1,9 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OrgsPage suite renders OrgsPage without any state injected 1`] = `
-<div>
-  <h2>
-    OrgsPage Stateful Component generated from the cli
-  </h2>
+exports[`OrgsPage suite renders OrgsPage 1`] = `
+<div
+  className="spinnerContainer"
+>
+  <div
+    aria-busy="true"
+    aria-live="assertive"
+    className="spinner"
+    role="alertdialog"
+  />
 </div>
 `;

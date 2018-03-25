@@ -1,18 +1,104 @@
 // @flow
-import React, { Component } from 'react';
-/* import styles from './OrgsPage.scss';
- */
-class OrgsPage extends Component {
+import React, { Component, Fragment } from 'react';
+import debounce from 'lodash.debounce';
+import GithubApi from './../../services/GithubApi';
+import { Spinner } from './../../components';
+import styles from './OrgsPage.scss';
+import { GithubUser, GithubOrg } from './../../types';
+
+type State = {
+  user: GithubUser,
+  orgs: GithubOrg[]
+};
+
+type Props = {
+  username: string,
+  isLoading: boolean
+};
+
+class OrgsPage extends Component<Props, State> {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      user: undefined,
+      orgs: undefined,
+      isLoading: this.props.isLoading
+    };
+
+    this.searchOrgs = debounce(this.searchOrgs, 500);
+  }
+
+  componentDidMount() {
+    this.update({
+      isLoading: this.props.isLoading,
+      username: this.props.username
+    });
+  }
+
+  componentWillReceiveProps(props) {
+    this.update({
+      isLoading: props.isLoading,
+      username: props.username
+    });
+  }
+
+  update({ isLoading, username }: { isLoading: boolean, username: string }) {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        isLoading: isLoading
+      };
+    });
+
+    if (username.trim() !== '') {
+      this.searchOrgs(username.trim());
+    } else {
+      this.setState(prevState => {
+        return {
+          ...prevState,
+          orgs: [],
+          user: undefined,
+          isLoading: false
+        };
+      });
+    }
+  }
+
+  async searchOrgs(username: string) {
+    if (username !== '') {
+      const { user, orgs } = await GithubApi.getUserData(username);
+
+      this.setState(prevState => {
+        return {
+          ...prevState,
+          user: user,
+          orgs: orgs,
+          isLoading: false
+        };
+      });
+    }
+  }
+
+  renderResults(user, orgs) {
+    if (user === undefined && orgs === undefined) {
+      return null;
+    }
+
+    return <pre>{JSON.stringify(user, null, 4)}</pre>;
   }
 
   render() {
+    const { user, orgs, isLoading } = this.state;
     return (
-      <div>
-        <h2>OrgsPage Stateful Component generated from the cli</h2>
-      </div>
+      <Fragment>
+        {isLoading ? (
+          <div className={styles.spinnerContainer}>
+            <Spinner />
+          </div>
+        ) : (
+          this.renderResults(user, orgs)
+        )}
+      </Fragment>
     );
   }
 }

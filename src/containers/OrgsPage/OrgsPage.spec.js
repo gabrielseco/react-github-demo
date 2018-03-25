@@ -5,8 +5,8 @@ import renderer from 'react-test-renderer';
 import OrgsPage from './OrgsPage';
 
 describe('OrgsPage suite', () => {
-  it('renders OrgsPage without any state injected', () => {
-    const comp = <OrgsPage />;
+  it('renders OrgsPage', () => {
+    const comp = <OrgsPage isLoading username="gabrielseco" />;
     const component = shallow(comp);
     const tree = renderer.create(comp).toJSON();
     expect(component).toBeDefined();

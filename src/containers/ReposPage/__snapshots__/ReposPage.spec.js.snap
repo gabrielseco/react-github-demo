@@ -1,16 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ReposPage suite renders RepoPage 1`] = `
-<div>
+<div
+  className="spinnerContainer"
+>
   <div
-    className="spinnerContainer"
-  >
-    <div
-      aria-busy="true"
-      aria-live="assertive"
-      className="spinner"
-      role="alertdialog"
-    />
-  </div>
+    aria-busy="true"
+    aria-live="assertive"
+    className="spinner"
+    role="alertdialog"
+  />
 </div>
 `;
