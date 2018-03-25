@@ -2,7 +2,7 @@
 
 exports[`RepoItem suite should render the RepoItem component 1`] = `
 <li
-  className="repoItem"
+  className="repoItem repo-item"
 >
   <a
     className="title"

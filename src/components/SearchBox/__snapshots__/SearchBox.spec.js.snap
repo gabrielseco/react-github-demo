@@ -5,7 +5,7 @@ exports[`SearchBox suite renders SearchBox without any state injected 1`] = `
   className="container"
 >
   <input
-    className=""
+    className=" search-box"
     onChange={[Function]}
     placeholder=""
     type="text"

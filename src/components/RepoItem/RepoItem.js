@@ -8,7 +8,7 @@ type Props = {
 };
 
 const RepoItem = ({ repo }: Props) => (
-  <li className={styles.repoItem}>
+  <li className={`${styles.repoItem} repo-item`}>
     <a href={repo.svn_url} target="_blank" className={styles.title}>
       <p>{repo.name}</p>
     </a>

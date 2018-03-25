@@ -6,7 +6,8 @@
     "prettier/react"
   ],
   "plugins": [
-    "react"
+    "react",
+    "cypress"
   ],
   "globals": {
     "atom": true
@@ -15,7 +16,8 @@
     "browser": true,
     "node": true,
     "jest": true,
-    "es6": true
+    "es6": true,
+    "cypress/globals": true
   },
   "rules": {
     "class-methods-use-this": "off",

@@ -20,7 +20,9 @@ class ReposList extends Component<Props> {
     const reposCollection = repos.map(repo => {
       return <RepoItem repo={repo} key={repo.id} />;
     });
-    return <ol className={styles.reposList}>{reposCollection}</ol>;
+    return (
+      <ol className={`${styles.reposList} repo-list`}>{reposCollection}</ol>
+    );
   }
 }
 

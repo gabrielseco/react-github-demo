@@ -4,7 +4,7 @@ exports[`Spinner suite should render the Spinner component 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="spinner"
+  className="spinner spinner-test"
   role="alertdialog"
 />
 `;

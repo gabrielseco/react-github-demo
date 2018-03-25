@@ -65,7 +65,7 @@ exports[`Layout suite renders Layout 1`] = `
           className="container"
         >
           <input
-            className="searchBox"
+            className="searchBox search-box"
             onChange={[Function]}
             placeholder="Search Users"
             type="text"

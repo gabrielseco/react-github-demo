@@ -25,10 +25,11 @@ class SearchBox extends Component<Props> {
 
   render() {
     const { classesInput, placeholder } = this.props;
+
     return (
       <div className={styles.container}>
         <input
-          className={classesInput}
+          className={`${classesInput} search-box`}
           type="text"
           placeholder={placeholder}
           onChange={this.onChange}

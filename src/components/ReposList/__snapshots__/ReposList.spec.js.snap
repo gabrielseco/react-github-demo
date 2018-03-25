@@ -2,10 +2,10 @@
 
 exports[`ReposList suite renders ReposList without any state injected 1`] = `
 <ol
-  className="reposList"
+  className="reposList repo-list"
 >
   <li
-    className="repoItem"
+    className="repoItem repo-item"
   >
     <a
       className="title"
@@ -54,7 +54,7 @@ exports[`ReposList suite renders ReposList without any state injected 1`] = `
     </div>
   </li>
   <li
-    className="repoItem"
+    className="repoItem repo-item"
   >
     <a
       className="title"

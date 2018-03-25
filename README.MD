@@ -47,12 +47,14 @@ https://github.com/gabrielseco/react-github-demo/commit/174ce7fe580a22095e111c51
 
 The unit tests what I did is used snapshot testing.
 
+I used cypress for end to end.
+
 ## WHAT IS MISSING
 * Right now is missing code splitting by route to have a better performance.
 
 * Use the webpack resolvers alias for dev experience
 
-* Integration Testing
+* Improve Integration Testing
 
 * More Unit Tests to have a better coverage.
 

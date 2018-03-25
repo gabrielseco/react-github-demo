@@ -7,7 +7,7 @@ exports[`ReposPage suite renders RepoPage 1`] = `
   <div
     aria-busy="true"
     aria-live="assertive"
-    className="spinner"
+    className="spinner spinner-test"
     role="alertdialog"
   />
 </div>
