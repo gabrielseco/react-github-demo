@@ -80,7 +80,7 @@ class OrgsPage extends Component<Props, State> {
   }
 
   renderResults(user, orgs) {
-    if (user === undefined && orgs === undefined) {
+    if (user === undefined || orgs === undefined) {
       return null;
     }
 
