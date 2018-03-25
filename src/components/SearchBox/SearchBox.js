@@ -13,9 +13,18 @@ class SearchBox extends Component<Props> {
     super(props);
     this.state = {};
     this.onKeyUp = this.onKeyUp.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
   }
 
   onKeyUp(evt) {
+    if (this.props.onChange) {
+      this.props.onChange({
+        value: evt.target.value
+      });
+    }
+  }
+
+  onMouseLeave(evt) {
     if (this.props.onChange) {
       this.props.onChange({
         value: evt.target.value
@@ -32,6 +41,7 @@ class SearchBox extends Component<Props> {
           type="text"
           placeholder={placeholder}
           onKeyUp={this.onKeyUp}
+          onMouseLeave={this.onMouseLeave}
         />
       </div>
     );
