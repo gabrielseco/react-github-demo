@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import {
   Header,
   Footer,
@@ -10,51 +11,46 @@ import {
   ReposList
 } from './../../components';
 import GithubApi from './../../services/GithubApi';
-import { GithubRepo, GithubUser, GithubOrg } from './../../types';
 import styles from './App.scss';
 import utils from './../../stylesheets/utils/flexbox.scss';
+import { GithubRepo, GithubUser, GithubOrg } from './../../types';
 
 type State = {
   repos: GithubRepo[],
   user: GithubUser,
   orgs: GithubOrg[],
-  isLoading: boolean,
-  pathname: string
+  isLoading: boolean
 };
 
-class App extends Component {
-  state: State;
+type Props = {
+  location: {
+    pathname: string
+  },
+  dispatch: Function
+};
 
+class App extends Component<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {
       repos: [],
-      isLoading: false,
-      pathname: this.props.location.pathname
+      isLoading: false
     };
     this.onChange = this.onChange.bind(this);
     this.searchRepos = debounce(this.searchRepos, 500);
   }
 
-  componentWillReceiveProps(props) {
-    this.setState(prevState => {
-      return {
-        ...prevState,
-        pathname: props.location.pathname
-      };
-    });
-  }
-
   onChange({ value }) {
+    const { location } = this.props;
     this.setState({
       isLoading: value !== ''
     });
 
-    if (this.state.pathname === '/' || this.state.pathname === '/repos') {
+    if (location.pathname === '/' || location.pathname === '/repos') {
       this.searchRepos(value);
     }
 
-    if (this.state.pathname === '/orgs') {
+    if (location.pathname === '/orgs') {
       this.searchOrgs(value);
     }
   }
@@ -128,4 +124,14 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export const mapStateToProps = (state, router) => {
+  return {
+    pathname: router.location.pathname
+  };
+};
+
+export { App };
+
+const PoweredApp = withRouter(connect(mapStateToProps)(App));
+
+export default PoweredApp;

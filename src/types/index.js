@@ -31,3 +31,8 @@ export type GithubOrg = {
   id: number,
   login: string
 };
+
+export type ActionType = {
+  type: string,
+  payload: any
+};
