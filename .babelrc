@@ -2,6 +2,7 @@
   "presets": ["es2015", "react"],
   "plugins": [
     "transform-object-rest-spread",
-    "babel-plugin-transform-flow-strip-types"
+    "babel-plugin-transform-flow-strip-types",
+    "babel-plugin-transform-async-to-generator"
   ]
 }

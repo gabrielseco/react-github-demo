@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App suite renders App without any state injected 1`] = `
+<div
+  className="flexboxSticky"
+>
+  <header
+    className="header"
+  >
+    <div
+      className="logo"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <h2
+          className="title"
+        >
+          Github Demo
+        </h2>
+      </a>
+    </div>
+    <nav
+      className="navBar"
+    >
+      <ul
+        className="navWrapper"
+      >
+        <li
+          className="navItem"
+        >
+          <a
+            className="navLink"
+            href="/repos"
+            onClick={[Function]}
+          >
+            Repos
+          </a>
+        </li>
+        <li
+          className="navItem"
+        >
+          <a
+            className="navLink"
+            href="/orgs"
+            onClick={[Function]}
+          >
+            Orgs
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main
+    className="flex1"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="searchBoxContainer"
+      >
+        <div
+          className="container"
+        >
+          <input
+            className="searchBox"
+            onKeyUp={[Function]}
+            placeholder="Start typing to search for users"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="footer"
+  >
+    <p>
+      Gabriel García Seco
+    </p>
+    <p>
+      Made with 
+      <i
+        className="footerIcon fa fa-heart-o"
+      />
+      , Madrid 2018
+    </p>
+  </footer>
+</div>
+`;

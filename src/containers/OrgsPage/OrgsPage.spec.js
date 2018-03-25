@@ -6,8 +6,9 @@ import OrgsPage from './OrgsPage';
 
 describe('OrgsPage suite', () => {
   it('renders OrgsPage without any state injected', () => {
-    const component = shallow(<OrgsPage />);
-    const tree = renderer.create(<OrgsPage />).toJSON();
+    const comp = <OrgsPage />;
+    const component = shallow(comp);
+    const tree = renderer.create(comp).toJSON();
     expect(component).toBeDefined();
     expect(tree).toMatchSnapshot();
   });

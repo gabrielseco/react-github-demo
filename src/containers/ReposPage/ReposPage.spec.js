@@ -5,9 +5,10 @@ import renderer from 'react-test-renderer';
 import ReposPage from './ReposPage';
 
 describe('ReposPage suite', () => {
-  it('renders RepoPage without any state injected', () => {
-    const component = shallow(<ReposPage />);
-    const tree = renderer.create(<ReposPage />).toJSON();
+  it('renders RepoPage', () => {
+    const comp = <ReposPage isLoading username="gabrielseco" />;
+    const component = shallow(comp);
+    const tree = renderer.create(comp).toJSON();
     expect(component).toBeDefined();
     expect(tree).toMatchSnapshot();
   });
