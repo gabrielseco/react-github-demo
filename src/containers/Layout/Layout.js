@@ -12,7 +12,7 @@ export default function Layout({ routes, onChange }) {
           <div className={styles.searchBoxContainer}>
             <SearchBox
               classesInput={styles.searchBox}
-              placeholder="Start typing to search for users"
+              placeholder="Search Users"
               onChange={onChange}
             />
           </div>

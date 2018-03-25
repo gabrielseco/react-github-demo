@@ -29,7 +29,7 @@ exports[`Header suite should render the Header component 1`] = `
       >
         <a
           className="navLink"
-          href="/repos"
+          href="/"
           onClick={[Function]}
         >
           Repos

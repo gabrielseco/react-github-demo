@@ -16,7 +16,7 @@ type Props = {
 };
 
 class ReposPage extends Component<Props, State> {
-  constructor(props: any) {
+  constructor(props) {
     super(props);
     this.state = {
       repos: [],

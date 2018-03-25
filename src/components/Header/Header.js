@@ -13,7 +13,7 @@ const Header = () => (
       </Link>
     </div>
     <NavBar>
-      <NavItem URL="/repos">Repos</NavItem>
+      <NavItem URL="/">Repos</NavItem>
       <NavItem URL="/orgs">Orgs</NavItem>
     </NavBar>
   </header>
