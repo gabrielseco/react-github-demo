@@ -66,8 +66,7 @@ exports[`Layout suite renders Layout 1`] = `
         >
           <input
             className="searchBox"
-            onKeyUp={[Function]}
-            onMouseLeave={[Function]}
+            onChange={[Function]}
             placeholder="Search Users"
             type="text"
           />

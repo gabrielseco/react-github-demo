@@ -6,8 +6,7 @@ exports[`SearchBox suite renders SearchBox without any state injected 1`] = `
 >
   <input
     className=""
-    onKeyUp={[Function]}
-    onMouseLeave={[Function]}
+    onChange={[Function]}
     placeholder=""
     type="text"
   />
